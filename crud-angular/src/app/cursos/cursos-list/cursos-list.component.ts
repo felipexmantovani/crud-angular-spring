@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Curso } from '../models/curso.interface';
+import { CursosService } from '../services/cursos.service';
 
 @Component({
   selector: 'app-cursos-list',
@@ -9,19 +10,16 @@ import { Curso } from '../models/curso.interface';
 })
 export class CursosListComponent implements OnInit {
 
-  cursos: Curso[] = [
-    {
-      _id: '1',
-      category: 'JS',
-      name: 'Angular Expert'
-    }
-  ];
+  cursos = new Array<Curso>();
 
   displayedColumns = ['name', 'category'];
 
-  constructor() { }
+  constructor(
+    private cursosService: CursosService
+  ) { }
 
   ngOnInit(): void {
+    this.cursos = this.cursosService.findAll();
   }
 
 }
