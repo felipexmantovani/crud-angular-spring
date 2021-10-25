@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { delay, first } from 'rxjs/operators';
 
 import { Curso } from '../models/curso.interface';
 
@@ -18,6 +18,9 @@ export class CursosService {
 
   findAll(): Observable<Array<Curso>> {
     return this.httpClient.get<Array<Curso>>(this.API)
-      .pipe(first());
+      .pipe(
+        first(),
+        delay(5000)
+      );
   }
 }

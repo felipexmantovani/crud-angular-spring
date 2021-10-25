@@ -11,7 +11,7 @@ import { CursosService } from '../services/cursos.service';
 })
 export class CursosListComponent implements OnInit {
 
-  cursos = new Observable<Array<Curso>>();
+  cursos$ = new Observable<Array<Curso>>();
 
   displayedColumns = ['name', 'category'];
 
@@ -20,7 +20,7 @@ export class CursosListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cursos = this.cursosService.findAll();
+    this.cursos$ = this.cursosService.findAll();
   }
 
 }
