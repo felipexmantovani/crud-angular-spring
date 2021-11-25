@@ -9,3 +9,13 @@ table {
   padding: 3em;
   background-color: rgba(#000000, 0.1);
 }
+
+.categoria {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  mat-icon {
+    margin-right: 0.25em;
+  }
+}
